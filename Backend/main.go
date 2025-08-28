@@ -5,14 +5,27 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	//This is how you import from within your own project
+	handlers "github.com/andrew-wiebe/Backend/Handlers"
 )
 
+// http://localhost:8080/api
 func main() {
 	http.HandleFunc("/api", apiHandler)
 	http.ListenAndServe(":8080", nil)
 }
 
+// We will use this type of thing to wrap around our api calls and allow them to branch off
+// Make sure to nest them properly
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello from the API!")
-	fmt.Fprintln(w, fmt.Sprintf("Request method: %s", r.Method))
+
+	//The login endpoint currently doesn't work
+	http.HandleFunc("/api/login", handlers.LoginHandler)
+}
+
+// http://localhost:8080/api/data
+func dataHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Hello from the data endpoint!")
 }
