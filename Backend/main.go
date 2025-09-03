@@ -20,12 +20,7 @@ func main() {
 // Make sure to nest them properly
 func apiHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello from the API!")
-
-	//The login endpoint currently doesn't work
 	http.HandleFunc("/api/login", handlers.LoginHandler)
-}
 
-// http://localhost:8080/api/data
-func dataHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello from the data endpoint!")
+
 }

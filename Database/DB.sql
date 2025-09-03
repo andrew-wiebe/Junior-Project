@@ -9,7 +9,6 @@ Drop table if exists user;
 
 
 
-
 -- Note: uuids are intentionally varchars, this lets us expose them to the user
 Create table user(
     user_uuid varchar(255) primary key not null,

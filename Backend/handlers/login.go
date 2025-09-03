@@ -3,6 +3,7 @@ package handlers
 import (
 	"fmt"
 	"net/http"
+	"strings"
 )
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
@@ -31,4 +32,12 @@ func dbLoginCheck(username string, password string) bool {
 		"user2": "password2",
 	}
 	return mockUserList[username] == password
+}
+
+func encrypt(word string) {
+	wordArray := strings.Split(word, "")
+	for i := 0; i < len(wordArray); i++ {
+
+	}
+
 }
